@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-
-  http_basic_authenticate_with name: "user", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: 'user', password: 'secret', except: %i[index show]
 
   def create
     @article = Article.find(params[:article_id])
@@ -16,7 +15,8 @@ class CommentsController < ApplicationController
   end
 
   private
-    def comment_params
-      params.require(:comment).permit(:commenter, :body, :status)
-    end
+
+  def comment_params
+    params.require(:comment).permit(:commenter, :body, :status)
+  end
 end
