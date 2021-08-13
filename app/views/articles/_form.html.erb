@@ -1,23 +1,30 @@
 <%= form_with model: article do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% article.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %><br>
-    <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
-  <div>
-    <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
-  </div>
-  <div>
-    <%= form.submit %>
+  <div class = "m-0 vh 100 row justify-centent-center align-items-center">
+    <div>
+      <%= form.label :title %>
+      <%= form.text_field :title, class:"form-control" %><br>
+      <% article.errors.full_messages_for(:title).each do |message| %>
+        <div class="alert alert-danger" role="alert"><%= message %></div>
+      <% end %>
+    </div>
+    <div>
+      <%= form.label :body %>
+      <%= form.text_area :body, class:"form-control" %><br>
+      <% article.errors.full_messages_for(:body).each do |message| %>
+        <div class="alert alert-danger" role="alert"><%= message %></div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col-4"><br>
+        <%= link_to "Back", articles_path, class:"btn btn-outline-primary"%>
+      </div>
+      <div class="col-4"><br>
+        <%= form.label :status %><br>
+        <%= form.select :status, ['public', 'private', 'archived'], selected: 'public'%>
+      </div>
+      <div class="col-4"><br>
+        <%= form.submit class:"btn btn-outline-success"%>
+      </div>
+    </div>
   </div>
 <% end %>
