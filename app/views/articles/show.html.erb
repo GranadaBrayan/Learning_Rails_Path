@@ -1,13 +1,47 @@
-<h1><%= @article.title %></h1>
-<p><%= @article.body %></p>
-<h2>Comments</h2>
-<%= render @article.comments %>
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Delete", article_path(@article),
+<div class="container">
+  <div class="col-md-auto">
+    <h1 class='text-center'><%= @article.title %></h1>
+  </div>
+</div>
+<span class="border border-secondary">
+  <p class='text-center'><%= @article.body %></p>
+</span>
+<ul><br>
+  <div class="row">
+    <div class="col-4"><br>
+      <li><%= link_to "Back", articles_path,
+                  class:"btn btn-outline-primary btn-lg" %></li>
+    </div>
+    <div class="col-4"><br>
+      <li><%= link_to "Edit", edit_article_path(@article),
+                  class:"btn btn-outline-secondary btn-lg" %></li>
+    </div>
+    <div class="col-4"><br>
+      <li><%= link_to "Delete", article_path(@article),
                   method: :delete,
-                  data: { confirm: "Ey! Are you sure?" } %></li>
-  <li><%= link_to "Back", articles_path %></li>
+                  data: { confirm: "Ey! Are you sure?" },
+                  class:"btn btn-outline-danger btn-lg" %></li>
+    </div>
+  </div>
 </ul>
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <span class="navbar-brand mb-0 h1">Comments</span>
+</nav>
+<p>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#viewComments" aria-expanded="true" aria-controls="viewComments">
+    View comments
+  </button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="false" aria-controls="addComment">
+    Add a comment
+  </button>
+</p>
+<div class="collapse" id="viewComments">
+  <div class="card card-body">
+    <%= render @article.comments %>
+  </div>
+</div>
+<div class="collapse" id="addComment">
+  <div class="card card-body">
+    <%= render 'comments/form' %>
+  </div>
+</div>

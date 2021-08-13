@@ -1,16 +1,57 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>My Blog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "styles.css"%>
   </head>
-
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#!">Blog</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/articles">Home</a></li>
+            <a class="nav-link" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">About</a>
+            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  This is a blog intended for the publication of content and inspiration for many Bloggers.
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header class="py-4 bg-light border-bottom mb-3">
+      <div class="container">
+        <div class="text-center my-3">
+          <h1 class="fw-bolder">Welcome to Blog kommitter!</h1>
+          <p class="lead mb-0">Here you will have a lot to read!</p>
+          <p class="lead mb-0"> Our blog has <%= Article.public_count %> articles and counting!</p>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+    <footer class="py-3 bg-gray">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Blog kommitter 2021</p>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
   </body>
 </html>
