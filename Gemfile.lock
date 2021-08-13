@@ -249,6 +249,7 @@ DEPENDENCIES
   rails (~> 6.1.4)
   sass (~> 3.7, >= 3.7.4)
   sass-rails (>= 6)
+  sassc
   selenium-webdriver
   spring
   sqlite3 (~> 1.4)
