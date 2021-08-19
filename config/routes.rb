@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+
+  resources :user do
+    member do
+      get :follow, :unfollow
+    end
+  end
 end
