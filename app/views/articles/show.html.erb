@@ -13,14 +13,18 @@
                   class:"btn btn-outline-primary btn-lg" %></li>
     </div>
     <div class="col-4"><br>
-      <li><%= link_to "Edit", edit_article_path(@article),
+      <%if @article.user == current_user%>
+        <li><%= link_to "Edit", edit_article_path(@article),
                   class:"btn btn-outline-secondary btn-lg" %></li>
+      <%end%>
     </div>
     <div class="col-4"><br>
-      <li><%= link_to "Delete", article_path(@article),
+      <%if @article.user == current_user%>
+        <li><%= link_to "Delete", article_path(@article),
                   method: :delete,
                   data: { confirm: "Ey! Are you sure?" },
                   class:"btn btn-outline-danger btn-lg" %></li>
+      <%end%>
     </div>
   </div>
 </ul>
@@ -31,9 +35,11 @@
   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#viewComments" aria-expanded="true" aria-controls="viewComments">
     View comments
   </button>
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="false" aria-controls="addComment">
-    Add a comment
-  </button>
+  <%if current_user.followings.include?(@article.user)|| @article.user == current_user%>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="false" aria-controls="addComment">
+      Add a comment
+    </button>
+  <%end%>
 </p>
 <div class="collapse" id="viewComments">
   <div class="card card-body">
