@@ -35,9 +35,11 @@
   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#viewComments" aria-expanded="true" aria-controls="viewComments">
     View comments
   </button>
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="false" aria-controls="addComment">
-    Add a comment
-  </button>
+  <%if current_user.followings.include?(@article.user)|| @article.user == current_user%>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="false" aria-controls="addComment">
+      Add a comment
+    </button>
+  <%end%>
 </p>
 <div class="collapse" id="viewComments">
   <div class="card card-body">

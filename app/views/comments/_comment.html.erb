@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <%if comment.user == current_user || comment.status == 'public'%>
+  <%if comment.user == current_user || comment.status == 'public' || @article.user == current_user%>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
         <p><%= comment.commenter %></p>
