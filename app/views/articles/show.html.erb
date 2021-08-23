@@ -13,13 +13,13 @@
                   class:"btn btn-outline-primary btn-lg" %></li>
     </div>
     <div class="col-4"><br>
-      <%if @article.user == current_user%>
+      <%if owner_article(@article)%>
         <li><%= link_to "Edit", edit_article_path(@article),
                   class:"btn btn-outline-secondary btn-lg" %></li>
       <%end%>
     </div>
     <div class="col-4"><br>
-      <%if @article.user == current_user%>
+      <%if owner_article(@article)%>
         <li><%= link_to "Delete", article_path(@article),
                   method: :delete,
                   data: { confirm: "Ey! Are you sure?" },
@@ -35,7 +35,7 @@
   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#viewComments" aria-expanded="true" aria-controls="viewComments">
     View comments
   </button>
-  <%if current_user.followings.include?(@article.user)|| @article.user == current_user%>
+  <%if is_followings?(@article)|| owner_article(@article)%>
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addComment" aria-expanded="false" aria-controls="addComment">
       Add a comment
     </button>
