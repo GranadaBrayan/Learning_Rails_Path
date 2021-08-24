@@ -17,3 +17,7 @@ module Visible
     status == 'archived'
   end
 end
+
+module Constants
+  PUBLIC = 'public'
+end
