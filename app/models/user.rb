@@ -20,4 +20,8 @@ class User < ApplicationRecord
 
   # returns an array of other users who the user has followed
   has_many :followings, through: :given_follows, source: :followed_user
+
+  def is_owner?(article)
+    id == article.user_id
+  end
 end

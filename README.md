@@ -25,3 +25,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+To implement e-mail, take into account the settings made in the .env_samples file.

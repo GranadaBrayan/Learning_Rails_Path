@@ -5,6 +5,7 @@ ruby '2.7.0'
 
 gem 'bootstrap', '~>4.0.0'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'sass', '~> 3.7', '>= 3.7.4'
 gem 'sassc'
