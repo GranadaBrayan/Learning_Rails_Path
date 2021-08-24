@@ -1,12 +1,10 @@
 module ArticlesHelper
-  include Visible::Constants
-
   def show_article?(article)
-    current_user.is_owner?(article) || article.status == PUBLIC
+    current_user.is_owner?(article) || article.public?
   end
 
   def show_comment?(comment, article)
-    article.user == current_user || comment.status == PUBLIC
+    article.user == current_user || comment.public?
   end
 
   def owner_article(article)

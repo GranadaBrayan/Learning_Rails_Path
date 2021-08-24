@@ -16,8 +16,8 @@ module Visible
   def archived?
     status == 'archived'
   end
-end
 
-module Constants
-  PUBLIC = 'public'
+  def public?
+    status == 'public'
+  end
 end
