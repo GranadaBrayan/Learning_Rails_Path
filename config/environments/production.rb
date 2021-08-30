@@ -25,9 +25,9 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
+    address: 'smtp.sendgrid.net',
     port: 587,
-    domain: 'gmail.com',
+    domain: 'heroku.com',
     authentication: 'plain',
     enable_starttls_auto: true,
     user_name: ENV['GMAIL_USERNAME'],
